@@ -3,7 +3,7 @@ include("./config/connect.php");
 
 session_start();
 if (!isset($_SESSION['login'])) {
-    //header('location:http://localhost:8080/btl/admin/login.php');
+    // header('location:http://localhost:8080/btl/phenikaa/admin/index-login.php');
     // echo "đến đây rồi";
 }
 ?>
@@ -15,6 +15,7 @@ if (!isset($_SESSION['login'])) {
             ?>
         </div>
         <div class="col-9">
+            <h1 class="text-center mt-5 mb-5">Quản lí ngươi dùng</h1>
             <div class="container">
                 <table class="table table-bordered border-dark ">
                     <thead>
