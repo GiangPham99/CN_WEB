@@ -59,7 +59,7 @@ session_start();
                     $count = mysqli_num_rows($result);
                     if (mysqli_query($conn, $sql)) {
                         echo "thêm thành công";
-                        header("Location: http://localhost:8080/btl/phenikaa/admin/user.php");
+                        header("Location: http://localhost/phenikaa/admin/user.php");
                     }
                 }
 

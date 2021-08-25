@@ -3,7 +3,7 @@ include("./config/connect.php");
 
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:http://localhost:8080/btl/phenikaa/admin/index-login.php');
+    // header('location:http://localhost/phenikaa/admin/index-login.php');
     // echo "đến đây rồi";
 }
 ?>
