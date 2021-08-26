@@ -1,8 +1,8 @@
 <!-- Delete-User -->
 <?php
     include("./config/connect.php");
-    $id_can_xoa = $_GET['id'];
-    $sql = "DELETE FROM dangnhap WHERE iddangnhap = '$id_can_xoa'";
+    $id_user = $_GET['id'];
+    $sql = "DELETE FROM dangnhap WHERE iddangnhap = '$id_user'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
         header("Location:http://localhost/phenikaa/admin/user.php");

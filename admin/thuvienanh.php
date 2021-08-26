@@ -34,14 +34,9 @@ if (!isset($_SESSION['login'])) {
                     $ngaydang = $_POST['ngaydang'];
 
                     $sql = "INSERT INTO thuvien (tenanh, ngaydang)
-                        VALUES ('$tendanhmuc' ,'$ngaydang')";
-                    // $result = mysqli_query($conn, $sql);
-                    // $count = mysqli_num_rows($result);
-                    if (mysqli_query($conn, $sql)) {
-                        header("Location:http://localhost/phenikaa/admin/thuvienanh.php");
-                    } else {
-                        echo "Không thể thêm ảnh mới";
-                    }
+                        VALUES ('$tenanh' ,'$ngaydang')";
+                    $result = mysqli_query($conn, $sql);
+                   
                 }
 
                 ?>

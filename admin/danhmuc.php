@@ -33,12 +33,8 @@ if (!isset($_SESSION['login'])) {
                         <input type="text" class="form-control" name="dangnhap" required>
                     </div>
                     <div class="col-md-2">
-                        <label for="validationCustom05" class="form-label">Trạng thái</label>
-                        <select class="form-select" name="trangthai" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>Đã xét duyệt</option>
-                            <option>Chưa xét duyệt</option>
-                        </select>
+                        <label for="validationCustom05" class="form-label">idtinhtrang</label>
+                        <input type="text" class="form-control" name="idtinhtrang" required>
                     </div>
                     <div class="col-12">
                         <button class="btn btn-primary mt-3" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
@@ -50,17 +46,13 @@ if (!isset($_SESSION['login'])) {
                     $mota = $_POST['mota'];
                     $ngaydang = $_POST['ngaydang'];
                     $dangnhap = $_POST['dangnhap'];
-                    $trangthai = $_POST['trangthai'];
+                    $idtinhtrang = $_POST['idtinhtrang'];
 
-                    $sql = "INSERT INTO danhmuc (tendanhmuc, mota, ngaydang, iddangnhap , idtrangthai)
-                        VALUES ('$tendanhmuc','$mota','$ngaydang',' $dangnhap','$trangthai')";
+                    $sql = "INSERT INTO danhmuc (tendanhmuc, mota, iddangnhap ,ngaydang, idtinhtrang)
+                        VALUES ('$tendanhmuc','$mota',' $dangnhap','$ngaydang','$idtinhtrang')";
                     $result = mysqli_query($conn, $sql);
-                    $count = mysqli_num_rows($result);
-                    if (mysqli_query($conn, $sql)) {
-                        header("Location:http://localhost/phenikaa/admin/danhmuc.php");
-                    } else {
-                        echo "Không thể thêm danh mục mới";
-                    }
+                   
+                   
                 }
 
                 ?>

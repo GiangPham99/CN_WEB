@@ -67,14 +67,11 @@ if (!isset($_SESSION['login'])) {
                     $phanquyen = $_POST['phanquyen'];
                     $pass_hash  = password_hash($matkhau, PASSWORD_DEFAULT);
 
-                    $sql = "INSERT INTO dangnhap (tendangnhap, matkhau, hoten, diachi , kichhoat,ngaylap,idphanquyen)
+                    $sql = "INSERT INTO dangnhap (tendangnhap,matkhau,hoten,diachi,kichhoat,ngaylap,idphanquyen)
                             VALUES ('$tendangnhap','$pass_hash','$hoten',' $diachi','$kichhoat','$ngaylap','$phanquyen')";
-                    // $result = mysqli_query($conn, $sql);
-                    // $count = mysqli_num_rows($result);
+                    
                     if (mysqli_query($conn, $sql)) {
-                        // header("Location:http://localhost/phenikaa/admin/user.php");
-                    }else{
-                        echo "Không thể thêm người dùng mới";
+                        header("Location:localhost/phenikaa/admin/user.php");
                     }
                 }
 

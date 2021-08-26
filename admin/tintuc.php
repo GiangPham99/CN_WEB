@@ -85,16 +85,16 @@ if (!isset($_SESSION['login'])) {
                         <label for="validationCustomUsername" class="form-label">Người xét</label>
                         <select class="form-select" name="dangnhap" required>
                             <option selected disabled value="">Choose...</option>
-                            <option>1</option>
-                            <option>2</option>
+                            <option>8</option>
+                            <option>9</option>
                         </select>
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustomUsername" class="form-label">Tình trạng</label>
                         <select class="form-select" name="tinhtrang" required>
                             <option selected disabled value="">Choose...</option>
-                            <option>Đã xét duyệt</option>
-                            <option>Chưa xét duyệt</option>
+                            <option>1</option>
+                            <option>2</option>
                         </select>
                     </div>
 
@@ -105,7 +105,7 @@ if (!isset($_SESSION['login'])) {
                 </form>
                 <?php
                 if (isset($_POST['luuthongtin'])) {
-                    $tieude = $_POST['tiêude'];
+                    $tieude = $_POST['tieude'];
                     $noidung = $_POST['noidung'];
                     $ngayviet = $_POST['ngayviet'];
                     $danhmuc = $_POST['danhmuc'];
@@ -115,13 +115,9 @@ if (!isset($_SESSION['login'])) {
 
                     $sql = "INSERT INTO tintuc (tieude, noidung, ngayviet, iddanhmuc , idhinhanh,iddangnhap,idtinhtrang)
                             VALUES ('$tieude','$noidung','$ngayviet',' $danhmuc','$hinhanh','$dangnhap','$tinhtrang')";
-                    // $result = mysqli_query($conn, $sql);
-                    // $count = mysqli_num_rows($result);
-                    if (mysqli_query($conn, $sql)) {
-                        header("Location:http://localhost/phenikaa/admin/tintuc.php");
-                    }else{
-                        echo "Không thể thêm tin tức mới";
-                    }
+                     $result = mysqli_query($conn, $sql);
+                 
+                  
                 }
 
                 ?>
