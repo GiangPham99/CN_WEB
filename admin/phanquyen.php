@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:http://localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa/admin/login.php');
 }
 ?>
 <div class="row">
@@ -37,8 +37,8 @@ if (!isset($_SESSION['login'])) {
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td> <?php echo $row['tenquyen']; ?></td>
-                                    <td><a href="edit.php?id=<?php echo $row['idphanquyen']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                    <td><a href="delete.php?id=<?php echo $row['idphanquyen']; ?>" 
+                                    <td><a href="edit.php?iduser=<?php echo $row['idphanquyen']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a href="delete.php?iduser=<?php echo $row['idphanquyen']; ?>" 
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>
                                 </tr>

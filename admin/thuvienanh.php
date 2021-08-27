@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:http://localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa/admin/login.php');
 }
 ?>
 <div class="row">
@@ -25,7 +25,7 @@ if (!isset($_SESSION['login'])) {
                         <input type="text" class="form-control" name="ngaydang" placeholder="Ngày đăng" required>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-primary mt-3" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
+                        <button class="btn-primary mt-3" style="width: 90px;height: 35px;border: none;border-radius: 5px;" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
                     </div>
                 </form>
                 <?php
@@ -35,8 +35,13 @@ if (!isset($_SESSION['login'])) {
 
                     $sql = "INSERT INTO thuvien (tenanh, ngaydang)
                         VALUES ('$tenanh' ,'$ngaydang')";
-                    $result = mysqli_query($conn, $sql);
-                   
+                    // $result = mysqli_query($conn, $sql);
+                    // $count = mysqli_num_rows($result);
+                    if (mysqli_query($conn, $sql)) {
+                        header("Location:http://localhost/phenikaa/admin/thuvienanh.php");
+                    } else {
+                        echo "Không thể thêm ảnh mới";
+                    }
                 }
 
                 ?>
@@ -66,8 +71,8 @@ if (!isset($_SESSION['login'])) {
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td> <?php echo $row['tenanh']; ?> </td>
                                     <td> <?php echo $row['ngaydang']; ?></td>
-                                    <td><a href="edit.php?id<?php echo $row['idhinhanh']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
-                                    <td><a href="delete.php?id=<?php echo $row['idhinhanh']; ?>" 
+                                    <td><a href="edit.php?idhinhanh<?php echo $row['idhinhanh']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
+                                    <td><a href="delete.php?idhinhanh=<?php echo $row['idhinhanh']; ?>" 
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>
                                 </tr>

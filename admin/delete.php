@@ -1,7 +1,7 @@
 <!-- Delete-User -->
 <?php
     include("./config/connect.php");
-    $id_user = $_GET['id'];
+    $id_user = $_GET['iddangnhap'];
     $sql = "DELETE FROM dangnhap WHERE iddangnhap = '$id_user'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
@@ -17,7 +17,7 @@
 <!-- Delete-Danhmuc -->
 <?php
     include("./config/connect.php");
-    $id_danh_muc = $_GET['id'];
+    $id_danh_muc = $_GET['iddanhmuc'];
     $sql = "DELETE FROM danhmuc WHERE iddanhmuc = '$id_danh_muc'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
@@ -33,7 +33,7 @@
 <!-- Delete-Tintuc -->
 <?php
     include("./config/connect.php");
-    $id_tintuc = $_GET['id'];
+    $id_tintuc = $_GET['idtintuc'];
     $sql = "DELETE FROM tintuc WHERE idtintuc = '$id_tintuc'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
@@ -49,7 +49,7 @@
 
 <?php
     include("./config/connect.php");
-    $id_thuvien = $_GET['id'];
+    $id_thuvien = $_GET['idhinhanh'];
     $sql = "DELETE FROM thuvien WHERE idhinhanh = '$id_thuvien'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
@@ -65,7 +65,7 @@
 <!-- Delete phân quyền -->
 <?php
     include("./config/connect.php");
-    $id_phanquyen = $_GET['id'];
+    $id_phanquyen = $_GET['iduser'];
     $sql = "DELETE FROM phanquyen WHERE idphanquyen = '$id_phanquyen'";
     $result = mysqli_query($conn,$sql);
     if($result == true){

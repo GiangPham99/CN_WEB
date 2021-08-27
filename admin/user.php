@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:http://localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa/admin/login.php');
 }
 ?>
 <div class="row">
@@ -15,7 +15,6 @@ if (!isset($_SESSION['login'])) {
         <div class="container">
             <h2 class="mt-5 mb-5 text-center ">Quản lí người dùng</h2>
             <div>
-                <!-- <a href="add-user.php" class="btn btn-primary mt-5 ">Thêm người dùng mới</a> -->
                 <form class="row g-3 needs-validation" action="" method="POST">
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Tên đăng nhập</label>
@@ -53,7 +52,7 @@ if (!isset($_SESSION['login'])) {
                         </select>
                     </div>
                     <div class="col-12">
-                        <button class="btn btn-primary mt-3" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
+                        <button class="btn-primary mt-3" style="width: 90px;height: 35px;border: none;border-radius: 5px;" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
                     </div>
                 </form>
                 <?php
@@ -67,12 +66,9 @@ if (!isset($_SESSION['login'])) {
                     $phanquyen = $_POST['phanquyen'];
                     $pass_hash  = password_hash($matkhau, PASSWORD_DEFAULT);
 
-                    $sql = "INSERT INTO dangnhap (tendangnhap,matkhau,hoten,diachi,kichhoat,ngaylap,idphanquyen)
+                    $sql = "INSERT INTO dangnhap (tendangnhap, matkhau, hoten, diachi , kichhoat,ngaylap,idphanquyen)
                             VALUES ('$tendangnhap','$pass_hash','$hoten',' $diachi','$kichhoat','$ngaylap','$phanquyen')";
-                    
-                    if (mysqli_query($conn, $sql)) {
-                        header("Location:localhost/phenikaa/admin/user.php");
-                    }
+                   $result = mysqli_query($conn, $sql);
                 }
 
                 ?>
@@ -93,8 +89,6 @@ if (!isset($_SESSION['login'])) {
                     </thead>
                     <tbody>
                         <?php
-                        //Lặp lấy dữ liệu và hiển thị ra bảng
-                        //Bước 02: Thực hiện Truy vấn
                         $sql = "SELECT * FROM dangnhap";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
@@ -108,8 +102,8 @@ if (!isset($_SESSION['login'])) {
                                     <td> <?php echo $row['diachi']; ?></td>
                                     <td> <?php echo $row['kichhoat'] ?></td>
                                     <td> <?php echo $row['ngaylap'] ?></td>
-                                    <td><a href="editUser.php?id=<?php echo $row['iddangnhap']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                    <td><a href="delete.php?id=<?php echo $row['iddangnhap']; ?>" 
+                                    <td><a href="editUser.php?iddangnhap=<?php echo $row['iddangnhap']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a href="delete.php?iddangnhap=<?php echo $row['iddangnhap']; ?>" 
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>
                                 </tr>

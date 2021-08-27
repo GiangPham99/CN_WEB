@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:http://localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa/admin/login.php');
 }
 ?>
 <div class="row">

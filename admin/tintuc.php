@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:http://localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa/admin/login.php');
 }
 ?>
 <div class="row">
@@ -14,50 +14,6 @@ if (!isset($_SESSION['login'])) {
     <div class="col-9 ">
         <div class="container">
             <h2 class="mt-5 text-center ">Quản lí trang tin</h2>
-            
-            <!-- <div>
-                <a href="add-user.php" class="btn btn-primary mt-5 ">Thêm trang tin</a>
-            </div> -->
-            <div class="row mt-5">
-                <table class="table table-bordered border-dark table-striped table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">TT</th>
-                            <th scope="col">Tiêu đề</th>
-                            <th scope="col">Nội dung</th>
-                            <th scope="col">Ngày đăng</th>
-                            <th scope="col">Sửa</th>
-                            <th scope="col">Xóa</tsh>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        //Lặp lấy dữ liệu và hiển thị ra bảng
-                        //Bước 02: Thực hiện Truy vấn
-                        $sql = "SELECT * FROM tintuc";
-                        $result = mysqli_query($conn, $sql);
-                        if (mysqli_num_rows($result) > 0) {
-                            $i = 1;
-                            while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                                <tr>
-                                    <th scope="row"><?php echo $i; ?></th>
-                                    <td> <?php echo $row['tieude']; ?> </td>
-                                    <td> <?php echo $row['noidung']; ?></td>
-                                    <td> <?php echo $row['ngayviet']; ?></td>
-                                    <td><a href="edit.php?id<?php echo $row['idtintuc']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
-                                    <td><a href="delete.php?id=<?php echo $row['idtintuc']; ?>"
-                                    onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
-                                    <i class="bi bi-archive-fill"></i></a></td>
-                                </tr>
-                        <?php
-                                $i++;
-                            }
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
             <div>
                 <!-- <a href="add-user.php" class="btn btn-primary mt-5 ">Thêm người dùng mới</a> -->
                 <form class="row g-3 needs-validation" action="" method="POST">
@@ -85,8 +41,10 @@ if (!isset($_SESSION['login'])) {
                         <label for="validationCustomUsername" class="form-label">Người xét</label>
                         <select class="form-select" name="dangnhap" required>
                             <option selected disabled value="">Choose...</option>
+                            <option>7</option>
                             <option>8</option>
-                            <option>9</option>
+                            <option>11</option>
+                            <option>4</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -100,7 +58,7 @@ if (!isset($_SESSION['login'])) {
 
                     </div>
                     <div class="col-12" >
-                        <button class="btn btn-primary mt-3" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
+                        <button class="btn-primary mt-3" style="width: 90px;height: 35px;border: none;border-radius: 5px;" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
                     </div>
                 </form>
                 <?php
@@ -108,19 +66,60 @@ if (!isset($_SESSION['login'])) {
                     $tieude = $_POST['tieude'];
                     $noidung = $_POST['noidung'];
                     $ngayviet = $_POST['ngayviet'];
-                    $danhmuc = $_POST['danhmuc'];
-                    $hinhanh = $_POST['hinhanh'];
-                    $dangnhap = $_POST['dangnhap'];
-                    $tinhtrang = $_POST['tinhtrang'];
+                    $iddanhmuc = $_POST['danhmuc'];
+                    $idhinhanh = $_POST['hinhanh'];
+                    $iddangnhap = $_POST['dangnhap'];
+                    $idtinhtrang = $_POST['tinhtrang'];
 
                     $sql = "INSERT INTO tintuc (tieude, noidung, ngayviet, iddanhmuc , idhinhanh,iddangnhap,idtinhtrang)
-                            VALUES ('$tieude','$noidung','$ngayviet',' $danhmuc','$hinhanh','$dangnhap','$tinhtrang')";
+                            VALUES ('$tieude','$noidung','$ngayviet',' $iddanhmuc','$idhinhanh','$iddangnhap','$idtinhtrang')";
                      $result = mysqli_query($conn, $sql);
-                 
-                  
+
+                     
                 }
 
                 ?>
+            </div>
+            <!-- <div>
+                <a href="add-user.php" class="btn btn-primary mt-5 ">Thêm trang tin</a>
+            </div> -->
+            <div class="row mt-5">
+                <table class="table table-bordered border-dark table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">TT</th>
+                            <th scope="col">Tiêu đề</th>
+                            <th scope="col">Nội dung</th>
+                            <th scope="col">Ngày đăng</th>
+                            <th scope="col">Sửa</th>
+                            <th scope="col">Xóa</tsh>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM tintuc";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0) {
+                            $i = 1;
+                            while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                                <tr>
+                                    <th scope="row"><?php echo $i; ?></th>
+                                    <td> <?php echo $row['tieude']; ?> </td>
+                                    <td> <?php echo $row['noidung']; ?></td>
+                                    <td> <?php echo $row['ngayviet']; ?></td>
+                                    <td><a href="edit.php?idtintuc<?php echo $row['idtintuc']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
+                                    <td><a href="delete.php?idtintuc=<?php echo $row['idtintuc']; ?>"
+                                    onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
+                                    <i class="bi bi-archive-fill"></i></a></td>
+                                </tr>
+                        <?php
+                                $i++;
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
