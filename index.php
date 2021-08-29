@@ -1,5 +1,23 @@
 <?php
 include("./header.php");
+include("./admin/config/connect.php");
+$getTinTuyenSinh ="SELECT idtintuc , tieude , noidung ,ngayviet, tenanh FROM tintuc , thuvien where tintuc.idhinhanh=thuvien.idhinhanh and tintuc.iddanhmuc=1 LIMIT 6";
+$getThongBao="SELECT idtintuc , tieude , noidung ,ngayviet, tenanh FROM tintuc , thuvien where tintuc.idhinhanh=thuvien.idhinhanh and tintuc.iddanhmuc=1 LIMIT 4";
+$result1 = mysqli_query($conn, $getTinTuyenSinh);
+$result2 = mysqli_query($conn, $getThongBao);
+//$row1 = mysqli_fetch_assoc($result1);,
+//Tin tuyển sinh
+$data1= array();
+//Tin tức và thôn báo
+$data2= array();
+while ($row1 = mysqli_fetch_assoc($result1)){
+	array_push($data1,$row1);
+}
+while ($row2 = mysqli_fetch_assoc($result2)){
+	array_push($data2,$row2);
+}
+
+
 ?>
         <!-- Slide_Show -->
         <div class="slide_show">
@@ -70,14 +88,14 @@ include("./header.php");
             <div class="row gy-5 mt-1">
                 <div class="col-6">
                     <div class="card img-khampha">
-                        <a href="#" class="text-decoration-none ">
+                        <a href="./baiviet.php?id=<?php echo $data1[0]['idtintuc']?>" class="text-decoration-none ">
                             <img src="./image/img1.jpg" class="card-img-top ">
                             <div class="card-body position-absolute top-50 start-0 text-white">
                                 <p class="card-text">
-                                    Công cố ngưỡng điểm nhận hồ sơ xét tuyển Đại học hệ chính quy theo phương thức cét điểm thi tốt nghiệp THPT 2021
+                                    <?php echo $data1[0]['tieude']?>
                                     <br>
                                     <br>
-                                    06,tháng 8, 2021
+                                    <?php echo $data1[0]['ngayviet']?>
                                 </p>
                             </div>
                         </a>
@@ -85,13 +103,14 @@ include("./header.php");
                 </div>
                 <div class="col-3">
                     <div class="card img-khampha">
-                        <a href="#" class="text-decoration-none">
+                        <a href="./baiviet.php?id=<?php echo $data1[1]['idtintuc']?>" class="text-decoration-none">
                             <img src="./image/img2.jpg" class="card-img-top ">
                             <div class="card-body position-absolute top-50 start-0 p-3 bg-light text-dark" style="padding-bottom: 28px;bottom: 0px;">
                                 <p class="card-text">
-                                    Trường Đại học Phenikaa nhận hồ sơ xét tuyển học bạ đợt 2 năm 2021
+								
+                                    <?php echo $data1[1]['tieude']?>
                                     <br>
-                                    12, tháng 8, năm 2021
+                                    <?php echo $data1[1]['ngayviet']?>
                                 </p>
                             </div>
                         </a>
@@ -99,14 +118,14 @@ include("./header.php");
                 </div>
                 <div class="col-3">
                     <div class="card img-khampha" style="height: 267px">
-                        <a href="#" class="text-decoration-none">
+                        <a href="./baiviet.php?id=<?php echo $data1[2]['idtintuc']?>" class="text-decoration-none">
                             <img src="./image/img3.jpg" class="card-img-top">
                             <div class="card-body position-absolute top-50 start-0 p-3 bg-light text-dark" style="padding-bottom: 28px;bottom: 0px;">
                                 <p class="card-text ">
-                                    Thông báo nhập học đợt 1 năm 2021
+                                    <?php echo $data1[2]['tieude']?>
                                 </p>
                                 <p class="card-text ">
-                                    1, tháng 8, năm 2021
+                                    <?php echo $data1[2]['ngayviet']?>
                                 </p>
                             </div>
                         </a>
@@ -120,14 +139,14 @@ include("./header.php");
             <div class="row gy-5">
                 <div class="col-3">
                     <div class="card img-khampha" style="height: 259px">
-                        <a href="#" class="text-decoration-none">
+                        <a href="./baiviet.php?id=<?php echo $data1[3]['idtintuc']?>" class="text-decoration-none">
                             <img src="./image/img4.jpg" class="card-img-top">
                             <div class="card-body position-absolute top-50 start-0 p-3 bg-light text-dark" style="padding-bottom: 28px;bottom: 0px;">
                                 <p class="card-text">
-                                    Thí sinh cần làm gì sau khi biết điểm thi tốt nghiệp THPT ?
+                                    <?php echo $data1[3]['tieude']?>
                                 </p>
                                 <p class="card-text">
-                                    26, tháng 7, năm 2021
+                                    <?php echo $data1[3]['ngayviet']?>
                                 </p>
                             </div>
                         </a>
@@ -135,13 +154,13 @@ include("./header.php");
                 </div>
                 <div class="col-3">
                     <div class="card img-khampha" style="height: 259px">
-                        <a href="#" class="text-decoration-none">
+                        <a href="./baiviet.php?id=<?php echo $data1[4]['idtintuc']?>" class="text-decoration-none">
                             <img src="./image/img5.jpg" class="card-img-top">
                             <div class="card-body position-absolute top-50 start-0 p-3 bg-light text-dark" style="padding-bottom: 28px;bottom: 0px;">
                                 <p class="card-text">
-                                    Công thức và cách tính điểm xét tốt nghiệp THPT 2021 nhanh nhất , chính xác nhất
+                                    <?php echo $data1[4]['tieude']?>
                                     <br>
-                                    20, tháng 7, năm 2021
+                                    <?php echo $data1[4]['ngayviet']?>
                                 </p>
                             </div>
                         </a>
@@ -149,14 +168,14 @@ include("./header.php");
                 </div>
                 <div class="col-6">
                     <div class="card img-khampha" style="height: 259px">
-                        <a href="#" class="text-decoration-none ">
+                        <a href="./baiviet.php?id=<?php echo $data1[5]['idtintuc']?>" class="text-decoration-none ">
                             <img src="./image/img6.jpg" class="card-img-top ">
                             <div class="card-body position-absolute top-50 start-0 text-white">
                                 <p class="card-text fs-5">
-                                    Tất tần tật về điều chỉnh nguyện vọng xét tuyển Đại học năm 2021
+                                    <?php echo $data1[5]['tieude']?>
                                 </p>
                                 <p class="card-text">
-                                    19,tháng 7, 2021
+                                    <?php echo $data1[5]['ngayviet']?>
                                 </p>
                             </div>
                         </a>
@@ -186,7 +205,7 @@ include("./header.php");
                     <div class="card img-khampha">
                         <img src="./image/kh-ky-nang-thich-ung-thumbnail.jpg" class="card-img-top">
                         <div class="card-body">
-                            <p class="card-text">Kế hoạch tổ chức đào tạo "Kĩ năng thích ứng môi trường làm việc "</p>
+                            <p class="card-text"><?php echo $data1[1]['tieude']?></p>
                         </div>
                     </div>
                 </div>
@@ -243,12 +262,12 @@ include("./header.php");
                             </div>
                             <div class="col-6">
                                 <div class="p-1">
-                                    <a href="https://phenikaa-uni.edu.vn/vi/post/tin-tuc/truong-dai-hoc-phenikaa-cong-bo-nguong-diem-nhan-ho-so-xet-tuyen-dai-hoc-he-chinh-quy-theo-phuong-thuc-xet-diem-thi-tot-nghiep-thpt-nam-2021" class="text-decoration-none text-black">
-                                        <p class="fw-700">Trường Đại học Phenikaa công bố ngưỡng điểm nhận hồ sơ xét tuyển Đại học hệ chính quy theo phương thức xét điểm thi tốt nghiệp THPT năm 2021</p>
+                                    <a href="./baiviet.php?id=<?php echo $data2[0]['idtintuc']?>" class="text-decoration-none text-black">
+                                        <p class="fw-700"><?php echo $data2[0]['tieude']?></p>
                                     </a>
                                     <br>
                                     <hr>
-                                    <a href="https://phenikaa-uni.edu.vn/vi/post/tin-tuc/truong-dai-hoc-phenikaa-cong-bo-nguong-diem-nhan-ho-so-xet-tuyen-dai-hoc-he-chinh-quy-theo-phuong-thuc-xet-diem-thi-tot-nghiep-thpt-nam-2021"><button type="button" class="btn btn-outline-secondary">Xem thêm</button></a>
+                                    <a href="./baiviet.php?id=<?php echo $data2[0]['idtintuc']?>"><button type="button" class="btn btn-outline-secondary">Xem thêm</button></a>
                                 </div>
                             </div>
                         </div>
@@ -262,13 +281,13 @@ include("./header.php");
                             </div>
                             <div class="col-6">
                                 <div class="p-1">
-                                    <a href="https://phenikaa-uni.edu.vn/vi/post/tin-tuc/truong-dai-hoc-phenikaa-cong-bo-ket-qua-xet-tuyen-dot-2-nam-2021-theo-phuong-thuc-xet-tuyen-ket-qua-hoc-tap-thpt-hoc-ba" class="text-decoration-none text-black">
-                                        <p class="fw-700">Trường Đại học Phenikaa công bố kết quả xét tuyển đợt 2 năm 2021 theo phương thức xét tuyển kết quả học tập THPT (học bạ)</p>
+                                    <a href="./baiviet.php?id=<?php echo $data2[1]['idtintuc']?>" class="text-decoration-none text-black">
+                                        <p class="fw-700"><?php echo $data2[1]['tieude']?></p>
                                         <br>
                                     </a>
                                     <br>
                                     <hr>
-                                    <a href="https://phenikaa-uni.edu.vn/vi/post/tin-tuc/truong-dai-hoc-phenikaa-cong-bo-ket-qua-xet-tuyen-dot-2-nam-2021-theo-phuong-thuc-xet-tuyen-ket-qua-hoc-tap-thpt-hoc-ba"><button type="button" class="btn btn-outline-secondary">Xem thêm</button></a>
+                                    <a href="./baiviet.php?id=<?php echo $data2[1]['idtintuc']?>"><button type="button" class="btn btn-outline-secondary">Xem thêm</button></a>
                                 </div>
                             </div>
                         </div>
@@ -282,14 +301,14 @@ include("./header.php");
                             </div>
                             <div class="col-6">
                                 <div class="p-1">
-                                    <a href="https://phenikaa-uni.edu.vn/vi/post/tin-tuc/thong-bao-nhap-hoc-dot-2-nam-2021" class="text-decoration-none text-black">
-                                        <p class="fw-700">Thông báo nhập học đợt 2 năm 2021</p>
+                                    <a href="./baiviet.php?id=<?php echo $data2[2]['idtintuc']?>" class="text-decoration-none text-black">
+                                        <p class="fw-700"><?php echo $data2[2]['tieude']?></p>
                                         <br><br>
                                         <br>
                                     </a>
                                     <br>
                                     <hr>
-                                    <a href="https://phenikaa-uni.edu.vn/vi/post/tin-tuc/thong-bao-nhap-hoc-dot-2-nam-2021"><button type="button" class="btn btn-outline-secondary">Xem thêm</button></a>
+                                    <a href="./baiviet.php?id=<?php echo $data2[2]['idtintuc']?>"><button type="button" class="btn btn-outline-secondary">Xem thêm</button></a>
                                 </div>
                             </div>
                         </div>
@@ -306,13 +325,13 @@ include("./header.php");
                             </div>
                             <div class="col-6">
                                 <div class="p-1">
-                                    <a href="https://phenikaa-uni.edu.vn/vi/post/tin-tuc/truong-dai-hoc-phenikaa-ho-tro-hoc-phi-cho-sinh-vien-hoc-vien-do-anh-huong-cua-dich-covid-19" class="text-decoration-none text-black">
-                                        <p class="fw-700">Trường Đại học Phenikaa hỗ trợ học phí cho sinh viên, học viên do ảnh hưởng của dịch COVID-19</p>
+                                    <a href="./baiviet.php?id=<?php echo $data2[3]['idtintuc']?>" class="text-decoration-none text-black">
+                                        <p class="fw-700"><?php echo $data2[3]['tieude']?></p>
                                         <br>
                                     </a>
                                     <br>
                                     <hr>
-                                    <a href="https://phenikaa-uni.edu.vn/vi/post/tin-tuc/truong-dai-hoc-phenikaa-ho-tro-hoc-phi-cho-sinh-vien-hoc-vien-do-anh-huong-cua-dich-covid-19"><button type="button" class="btn btn-outline-secondary">Xem thêm</button></a>
+                                    <a href="./baiviet.php?id=<?php echo $data2[3]['idtintuc']?>"><button type="button" class="btn btn-outline-secondary">Xem thêm</button></a>
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,7 @@ include("./config/connect.php");
 
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa/admin/index-login.php');
+     //     header('location:index-login.php');
     // echo "đến đây rồi";
 }
 ?>
@@ -25,7 +25,7 @@ if (!isset($_SESSION['login'])) {
                             <th scope="col">Phân quyền</th>
                             <th scope="col">Trình chiếu</th>
                             <th scope="col">Thư viện hình ảnh</th>
-                            <th scope="col">Tình trạng</th>
+                          
                             <th scope="col">Tin tức</th>
                         </tr>
                     </thead>
@@ -101,20 +101,7 @@ if (!isset($_SESSION['login'])) {
                                     ?>
                                 </h3>
                             </td>
-                            <td>
-                                <h3>
-                                    <?php
-                                    // Bước 02: Thực thi truy vấn
-                                    $sql6 = "SELECT * FROM tinhtrang";
-                                    $result = mysqli_query($conn, $sql6);
-                                    // Bước 03: Xử lý kết quả: Lấy ra số bản ghi
-                                    $count_invoice = mysqli_num_rows($result);
-                                    echo $count_invoice;
-                                    // // Bước 04: Đóng kết nối
-                                    // mysqli_close($conn);
-                                    ?>
-                                </h3>
-                            </td>
+                            
                             <td>
                                 <h3>
                                     <?php

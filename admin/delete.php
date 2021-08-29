@@ -5,11 +5,11 @@
     $sql = "DELETE FROM dangnhap WHERE iddangnhap = '$id_user'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http://localhost/phenikaa/admin/user.php");
+        header("Location:http://localhost/phenikaa_test2_BTL/admin/user.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http://localhost/phenikaa/admin/user.php');
+        header('location:http://localhost/phenikaa_test2_BTL/admin/user.php');
     }
 
 ?>
@@ -21,11 +21,11 @@
     $sql = "DELETE FROM danhmuc WHERE iddanhmuc = '$id_danh_muc'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http://localhost/phenikaa/admin/danhmuc.php");
+        header("Location:http://localhost/phenikaa_test2_BTL/admin/danhmuc.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http://localhost/phenikaa/admin/danhmuc.php');
+        header('location:http://localhost/phenikaa_test2_BTL/admin/danhmuc.php');
     }
 
 ?>
@@ -37,11 +37,11 @@
     $sql = "DELETE FROM tintuc WHERE idtintuc = '$id_tintuc'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http://localhost/phenikaa/admin/tintuc.php");
+        header("Location:http://localhost/phenikaa_test2_BTL/admin/tintuc.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http://localhost/phenikaa/admin/tintuc.php');
+        header('location:http://localhost/phenikaa_test2_BTL/admin/tintuc.php');
     }
 
 ?>
@@ -53,11 +53,11 @@
     $sql = "DELETE FROM thuvien WHERE idhinhanh = '$id_thuvien'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http://localhost/phenikaa/admin/thuvienanh.php");
+        header("Location:http://localhost/phenikaa_test2_BTL/admin/thuvienanh.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http://localhost/phenikaa/admin/thuvienanh.php');
+        header('location:http://localhost/phenikaa_test2_BTL/admin/thuvienanh.php');
     }
 
 ?>
@@ -69,11 +69,11 @@
     $sql = "DELETE FROM phanquyen WHERE idphanquyen = '$id_phanquyen'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http://localhost/phenikaa/admin/phanquyen.php");
+        header("Location:http://localhost/phenikaa_test2_BTL/admin/phanquyen.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http://localhost/phenikaa/admin/phanquyen.php');
+        header('location:http://localhost/phenikaa_test2_BTL/admin/phanquyen.php');
     }
 
 ?>

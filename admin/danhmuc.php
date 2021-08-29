@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
 }
 ?>
 <div class="row">
@@ -29,17 +29,10 @@ if (!isset($_SESSION['login'])) {
                         <input type="text" class="form-control" name="ngaydang" placeholder="Ngày đăng" required>
                     </div>
                     <div class="col-md-2">
-                        <label for="validationCustom05" class="form-label">Quyền</label>
+                        <label for="validationCustom05" class="form-label">ID người đăng</label>
                         <input type="text" class="form-control" name="dangnhap" required>
                     </div>
-                    <div class="col-md-2">
-                        <label for="validationCustom05" class="form-label">Trạng thái</label>
-                        <select class="form-select" name="idtinhtrang" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
-                    </div>
+                  
                     <div class="col-12">
                         <button class="btn-primary mt-3" style="width: 90px;height: 35px;border: none;border-radius: 5px;" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
                     </div>
@@ -50,10 +43,10 @@ if (!isset($_SESSION['login'])) {
                     $mota = $_POST['mota'];
                     $ngaydang = $_POST['ngaydang'];
                     $dangnhap = $_POST['dangnhap'];
-                    $idtinhtrang = $_POST['idtinhtrang'];
+                  
 
-                    $sql = "INSERT INTO danhmuc (tendanhmuc, mota, iddangnhap ,ngaydang, idtinhtrang)
-                        VALUES ('$tendanhmuc','$mota',' $dangnhap','$ngaydang','$idtinhtrang')";
+                    $sql = "INSERT INTO danhmuc (tendanhmuc, mota, iddangnhap ,ngaydang)
+                        VALUES ('$tendanhmuc','$mota',' $dangnhap','$ngaydang')";
                     $result = mysqli_query($conn, $sql);
                    
                 }
@@ -79,7 +72,7 @@ if (!isset($_SESSION['login'])) {
                         $sql = "SELECT * FROM danhmuc";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($result) > 0) {
-                            $i = 1;
+                            $i = 1; 
                             while ($row = mysqli_fetch_assoc($result)) {
                         ?>
                                 <tr>

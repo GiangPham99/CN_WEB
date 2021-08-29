@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
 }
 ?>
 <div class="row">
@@ -38,24 +38,9 @@ if (!isset($_SESSION['login'])) {
                         <input type="text" class="form-control" name="hinhanh" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Người xét</label>
-                        <select class="form-select" name="dangnhap" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>11</option>
-                            <option>4</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Tình trạng</label>
-                        <select class="form-select" name="tinhtrang" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
-                    </div>
-
+                        <label for="validationCustomUsername" class="form-label">ID Người xét </label>
+                        <input type="text" class="form-control" name="dangnhap" required>
+                    </div>                    
                     </div>
                     <div class="col-12" >
                         <button class="btn-primary mt-3" style="width: 90px;height: 35px;border: none;border-radius: 5px;" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
@@ -69,10 +54,10 @@ if (!isset($_SESSION['login'])) {
                     $iddanhmuc = $_POST['danhmuc'];
                     $idhinhanh = $_POST['hinhanh'];
                     $iddangnhap = $_POST['dangnhap'];
-                    $idtinhtrang = $_POST['tinhtrang'];
+                 
 
-                    $sql = "INSERT INTO tintuc (tieude, noidung, ngayviet, iddanhmuc , idhinhanh,iddangnhap,idtinhtrang)
-                            VALUES ('$tieude','$noidung','$ngayviet',' $iddanhmuc','$idhinhanh','$iddangnhap','$idtinhtrang')";
+                    $sql = "INSERT INTO tintuc (tieude, noidung, ngayviet, iddanhmuc , idhinhanh,iddangnhap)
+                            VALUES ('$tieude','$noidung','$ngayviet',' $iddanhmuc','$idhinhanh','$iddangnhap')";
                      $result = mysqli_query($conn, $sql);
 
                      
@@ -108,7 +93,7 @@ if (!isset($_SESSION['login'])) {
                                     <td> <?php echo $row['tieude']; ?> </td>
                                     <td> <?php echo $row['noidung']; ?></td>
                                     <td> <?php echo $row['ngayviet']; ?></td>
-                                    <td><a href="edit.php?idtintuc<?php echo $row['idtintuc']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
+                                    <td><a href="edit.php?idtintuc=<?php echo $row['idtintuc']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
                                     <td><a href="delete.php?idtintuc=<?php echo $row['idtintuc']; ?>"
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>

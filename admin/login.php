@@ -20,17 +20,17 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         header("Location : index-login.php?error=Password is requied");
         exit();
     }else{
-        $sql = "SELECT *FROM dangnhap WHERE tendangnhap = '$username' AND matkhau='$pass' ";
+        $sql = "SELECT *FROM dangnhap WHERE tendangnhap = '".$username."'";
 
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result)){
             $row = mysqli_fetch_assoc($result);
-            if($row['tendangnhap'] === $username && $row['matkhau'] === $pass){
+            if($row['tendangnhap'] === $username && password_verify($pass,$row['matkhau']) === true){
                 $_SESSION['tendangnhap'] = $row['tendangnhap'];
                 $_SESSION['hoten'] = $row['hoten'];
                 $_SESSION['iddangnhap'] = $row['iddangnhap'];
                 // echo "đến đây rồi";
-                header("Location:http://localhost/phenikaa/admin/index.php");
+                header("Location:http://localhost/phenikaa_test2_BTL/admin/index.php");
                 exit();
             }else{
                 header("Location: index-login.php?error=Incorect User name or password");

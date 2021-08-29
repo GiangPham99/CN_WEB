@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
 }
 ?>
 <div class="row">
@@ -32,10 +32,7 @@ if (!isset($_SESSION['login'])) {
                         <label for="validationCustom03" class="form-label">Địa chỉ</label>
                         <input type="text" class="form-control" name="diachi" placeholder="Địa chỉ" required>
                     </div>
-                    <div class="col-md-2">
-                        <label for="validationCustom04" class="form-label">Kích hoạt</label>
-                        <input type="text" class="form-control" name="kichhoat" placeholder="Ngày kích hoạt" required>
-                    </div>
+                
                     <div class="col-md-2">
                         <label for="validationCustom05" class="form-label">Ngày Lập</label>
                         <input type="text" class="form-control" name="ngaylap" placeholder="Ngày lập" required>
@@ -45,10 +42,8 @@ if (!isset($_SESSION['login'])) {
                         <label for="validationCustom05" class="form-label">Phân quyền</label>
                         <select class="form-select" name="phanquyen" required>
                             <option selected disabled value="">Choose...</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
+                            <option>1-Admin</option>
+                            <option>2-Giảng Viên</option>                      
                         </select>
                     </div>
                     <div class="col-12">
@@ -60,14 +55,13 @@ if (!isset($_SESSION['login'])) {
                     $tendangnhap = $_POST['tendangnhap'];
                     $matkhau = $_POST['matkhau'];
                     $hoten = $_POST['hoten'];
-                    $diachi = $_POST['diachi'];
-                    $kichhoat = $_POST['kichhoat'];
+                    $diachi = $_POST['diachi'];            
                     $ngaylap = $_POST['ngaylap'];
                     $phanquyen = $_POST['phanquyen'];
                     $pass_hash  = password_hash($matkhau, PASSWORD_DEFAULT);
 
-                    $sql = "INSERT INTO dangnhap (tendangnhap, matkhau, hoten, diachi , kichhoat,ngaylap,idphanquyen)
-                            VALUES ('$tendangnhap','$pass_hash','$hoten',' $diachi','$kichhoat','$ngaylap','$phanquyen')";
+                    $sql = "INSERT INTO dangnhap (tendangnhap, matkhau, hoten, diachi  ,ngaylap,idphanquyen)
+                            VALUES ('$tendangnhap','$pass_hash','$hoten',' $diachi','$ngaylap','$phanquyen')";
                    $result = mysqli_query($conn, $sql);
                 }
 
@@ -78,10 +72,10 @@ if (!isset($_SESSION['login'])) {
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">TT</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Tên đăng nhập</th>
                             <th scope="col">Họ tên</th>
-                            <th scope="col">Địa chỉ</th>
-                            <th scope="col">Kích hoạt</th>
+                            <th scope="col">Địa chỉ</th> 
                             <th scope="col">Ngày lập</th>
                             <th scope="col">Sửa</th>
                             <th scope="col">Xóa</tsh>
@@ -97,10 +91,10 @@ if (!isset($_SESSION['login'])) {
                         ?>
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
+                                    <td> <?php echo $row['iddangnhap']; ?> </td>
                                     <td> <?php echo $row['tendangnhap']; ?> </td>
                                     <td> <?php echo $row['hoten']; ?></td>
-                                    <td> <?php echo $row['diachi']; ?></td>
-                                    <td> <?php echo $row['kichhoat'] ?></td>
+                                    <td> <?php echo $row['diachi']; ?></td> 
                                     <td> <?php echo $row['ngaylap'] ?></td>
                                     <td><a href="editUser.php?iddangnhap=<?php echo $row['iddangnhap']; ?>"><i class="bi bi-pencil-square"></i></a></td>
                                     <td><a href="delete.php?iddangnhap=<?php echo $row['iddangnhap']; ?>" 

@@ -68,7 +68,7 @@ $result = mysqli_query($conn, $sql);
                 WHERE iddangnhap = '$id_thay_doi'";
         if ($conn->query($sql) === TRUE) {
             echo "thay dổi thành công";
-            header("Location:http://localhost/phenikaa/admin/user.php");
+            header("Location:http://localhost/phenikaa_test2_BTL/admin/user.php");
         } else {
             echo "Không thể thay đổi thông tin người dùng";
         }

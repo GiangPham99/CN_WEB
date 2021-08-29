@@ -2,7 +2,7 @@
 include("./config/connect.php");
 session_start();
 if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa/admin/login.php');
+    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
 }
 ?>
 <div class="row">
@@ -17,8 +17,8 @@ if (!isset($_SESSION['login'])) {
             <div>
                 <form class="row g-3 needs-validation" action="" method="POST">
                     <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Tên ảnh</label>
-                        <input type="text" class="form-control" name="tenanh" placeholder="Tên ảnh" required>
+                        <label for="validationCustom01" class="form-label">Link ảnh</label>
+                        <input type="text" class="form-control" name="tenanh" placeholder="Link ảnh" required>
                     </div>
                     <div class="col-md-2">
                         <label for="validationCustom05" class="form-label">Ngày đăng</label>
@@ -38,7 +38,7 @@ if (!isset($_SESSION['login'])) {
                     // $result = mysqli_query($conn, $sql);
                     // $count = mysqli_num_rows($result);
                     if (mysqli_query($conn, $sql)) {
-                        header("Location:http://localhost/phenikaa/admin/thuvienanh.php");
+                        header("Location:http://localhost/phenikaa_test2_BTL/admin/thuvienanh.php");
                     } else {
                         echo "Không thể thêm ảnh mới";
                     }
@@ -51,7 +51,7 @@ if (!isset($_SESSION['login'])) {
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">TT</th>
-                            <th scope="col">Tên ảnh</th>
+                            <th scope="col">Link ảnh</th>
                             <th scope="col">Ngày đăng</th>
                             <th scope="col">Sửa</th>
                             <th scope="col">Xóa</tsh>
@@ -71,7 +71,7 @@ if (!isset($_SESSION['login'])) {
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td> <?php echo $row['tenanh']; ?> </td>
                                     <td> <?php echo $row['ngaydang']; ?></td>
-                                    <td><a href="edit.php?idhinhanh<?php echo $row['idhinhanh']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
+                                    <td><a href="editHinhAnh.php?idhinhanh=<?php echo $row['idhinhanh']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
                                     <td><a href="delete.php?idhinhanh=<?php echo $row['idhinhanh']; ?>" 
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>
