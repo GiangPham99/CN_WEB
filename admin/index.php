@@ -1,9 +1,8 @@
 <?php
 include("./config/connect.php");
-
 session_start();
 if (!isset($_SESSION['login'])) {
-     //     header('location:index-login.php');
+      //  header('location:http://localhost/phenikaa_test2_BTL/admin/login.php');
     // echo "đến đây rồi";
 }
 ?>
@@ -24,8 +23,7 @@ if (!isset($_SESSION['login'])) {
                             <th scope="col">Danh mục</th>
                             <th scope="col">Phân quyền</th>
                             <th scope="col">Trình chiếu</th>
-                            <th scope="col">Thư viện hình ảnh</th>
-                          
+                            <th scope="col">Thư viện hình ảnh</th>     
                             <th scope="col">Tin tức</th>
                         </tr>
                     </thead>

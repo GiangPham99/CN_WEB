@@ -3,7 +3,7 @@ include("./header.php");
 ?>
 <div class="p-3 mb-2 bg-light">
     <div class="container">
-        <nav aria-label="breadcrumb">
+        <nav aria-label="x`">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="./index.php" class="text-decoration-none text-black">Trang chủ</a></li>
                 <li class="breadcrumb-item active text-black" aria-current="page"><a href="./daotao.php" class="text-decoration-none text-black">Đào tạo</a></li>

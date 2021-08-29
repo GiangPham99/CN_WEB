@@ -3,7 +3,7 @@
 	$idBaiViet = '';
 	if(isset($_GET['id'])){$idBaiViet=$_GET['id'];}
 	else{$idBaiViet='5';}
-	$getTinTuyenSinh ="SELECT idtintuc , tieude , noidung ,ngayviet, tenanh FROM tintuc , thuvien where tintuc.idhinhanh=thuvien.idhinhanh";
+	$getTinTuyenSinh ="SELECT idtintuc , tieude , noidung ,ngayviet, tenanh FROM tintuc , thuvien where tintuc.idhinhanh=thuvien.idhinhanh and tintuc.idtintuc='$idBaiViet'";
 	$result1 = mysqli_query($conn, $getTinTuyenSinh);
 	$row = mysqli_fetch_assoc($result1);
 ?>

@@ -2,13 +2,13 @@
 include("./header.php");
 include("./admin/config/connect.php");
 $getTinTuyenSinh ="SELECT idtintuc , tieude , noidung ,ngayviet, tenanh FROM tintuc , thuvien where tintuc.idhinhanh=thuvien.idhinhanh and tintuc.iddanhmuc=1 LIMIT 6";
-$getThongBao="SELECT idtintuc , tieude , noidung ,ngayviet, tenanh FROM tintuc , thuvien where tintuc.idhinhanh=thuvien.idhinhanh and tintuc.iddanhmuc=1 LIMIT 4";
+$getThongBao="SELECT idtintuc , tieude , noidung ,ngayviet, tenanh FROM tintuc , thuvien where tintuc.idhinhanh=thuvien.idhinhanh and tintuc.iddanhmuc=3 LIMIT 4";
 $result1 = mysqli_query($conn, $getTinTuyenSinh);
 $result2 = mysqli_query($conn, $getThongBao);
 //$row1 = mysqli_fetch_assoc($result1);,
 //Tin tuyển sinh
 $data1= array();
-//Tin tức và thôn báo
+//Tin tức và thông báo
 $data2= array();
 while ($row1 = mysqli_fetch_assoc($result1)){
 	array_push($data1,$row1);
@@ -104,7 +104,7 @@ while ($row2 = mysqli_fetch_assoc($result2)){
                 <div class="col-3">
                     <div class="card img-khampha">
                         <a href="./baiviet.php?id=<?php echo $data1[1]['idtintuc']?>" class="text-decoration-none">
-                            <img src="./image/img2.jpg" class="card-img-top ">
+                            <img src="./image/img7.jpg" class="card-img-top ">
                             <div class="card-body position-absolute top-50 start-0 p-3 bg-light text-dark" style="padding-bottom: 28px;bottom: 0px;">
                                 <p class="card-text">
 								
@@ -140,7 +140,7 @@ while ($row2 = mysqli_fetch_assoc($result2)){
                 <div class="col-3">
                     <div class="card img-khampha" style="height: 259px">
                         <a href="./baiviet.php?id=<?php echo $data1[3]['idtintuc']?>" class="text-decoration-none">
-                            <img src="./image/img4.jpg" class="card-img-top">
+                            <img src="./image/img2.jpg" class="card-img-top">
                             <div class="card-body position-absolute top-50 start-0 p-3 bg-light text-dark" style="padding-bottom: 28px;bottom: 0px;">
                                 <p class="card-text">
                                     <?php echo $data1[3]['tieude']?>
@@ -155,7 +155,7 @@ while ($row2 = mysqli_fetch_assoc($result2)){
                 <div class="col-3">
                     <div class="card img-khampha" style="height: 259px">
                         <a href="./baiviet.php?id=<?php echo $data1[4]['idtintuc']?>" class="text-decoration-none">
-                            <img src="./image/img5.jpg" class="card-img-top">
+                            <img src="./image/img3.jpg" class="card-img-top">
                             <div class="card-body position-absolute top-50 start-0 p-3 bg-light text-dark" style="padding-bottom: 28px;bottom: 0px;">
                                 <p class="card-text">
                                     <?php echo $data1[4]['tieude']?>
@@ -169,7 +169,7 @@ while ($row2 = mysqli_fetch_assoc($result2)){
                 <div class="col-6">
                     <div class="card img-khampha" style="height: 259px">
                         <a href="./baiviet.php?id=<?php echo $data1[5]['idtintuc']?>" class="text-decoration-none ">
-                            <img src="./image/img6.jpg" class="card-img-top ">
+                            <img src="./image/img4.jpg" class="card-img-top ">
                             <div class="card-body position-absolute top-50 start-0 text-white">
                                 <p class="card-text fs-5">
                                     <?php echo $data1[5]['tieude']?>
