@@ -1,9 +1,6 @@
 <?php
 include("./config/connect.php");
-session_start();
-if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
-}
+
 ?>
 <div class="row">
     <div class="col-3">
@@ -32,18 +29,13 @@ if (!isset($_SESSION['login'])) {
                         <label for="validationCustom03" class="form-label">Địa chỉ</label>
                         <input type="text" class="form-control" name="diachi" placeholder="Địa chỉ" required>
                     </div>
-                
-                    <div class="col-md-2">
-                        <label for="validationCustom05" class="form-label">Ngày Lập</label>
-                        <input type="text" class="form-control" name="ngaylap" placeholder="Ngày lập" required>
-
-                    </div>
+                                  
                     <div class="col-md-2">
                         <label for="validationCustom05" class="form-label">Phân quyền</label>
                         <select class="form-select" name="phanquyen" required>
                             <option selected disabled value="">Choose...</option>
                             <option>1-Admin</option>
-                            <option>2-Giảng Viên</option>                      
+                            <option>3-Giảng Viên</option>                      
                         </select>
                     </div>
                     <div class="col-12">
@@ -56,7 +48,7 @@ if (!isset($_SESSION['login'])) {
                     $matkhau = $_POST['matkhau'];
                     $hoten = $_POST['hoten'];
                     $diachi = $_POST['diachi'];            
-                    $ngaylap = $_POST['ngaylap'];
+                    $ngaylap = date("Y-m-d");
                     $phanquyen = $_POST['phanquyen'];
                     $pass_hash  = password_hash($matkhau, PASSWORD_DEFAULT);
 

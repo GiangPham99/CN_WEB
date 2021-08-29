@@ -1,10 +1,6 @@
 <?php
 include("./config/connect.php");
-session_start();
-if (!isset($_SESSION['login'])) {
-      //  header('location:http://localhost/phenikaa_test2_BTL/admin/login.php');
-    // echo "đến đây rồi";
-}
+
 ?>
 <div>
     <div class="row">

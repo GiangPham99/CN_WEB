@@ -1,9 +1,6 @@
 <?php
 include("./config/connect.php");
-session_start();
-if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
-}
+
 ?>
 <div class="row">
     <div class="col-3">
@@ -13,7 +10,32 @@ if (!isset($_SESSION['login'])) {
     </div>
     <div class="col-9 ">
         <div class="container">
-            <h2 class="mt-5 text-center ">Quản lí quyền</h2>
+            <h2 class="mt-5 text-center ">Quản lí quyền</h2> <br>
+            <div>
+                <form class="row g-3 needs-validation" action="" method="POST">
+                    <div class="col-md-4">
+                        <label for="validationCustom01" class="form-label">Tên Quyền</label>
+                        <input type="text" class="form-control" name="tenquyen" placeholder="Tên danh muc" required>
+                    </div>                             
+                    <div class="col-12">
+                        <button class="btn-primary mt-3" style="width: 90px;height: 35px;border: none;border-radius: 5px;" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
+                    </div>
+                </form>
+                <?php
+                if (isset($_POST['luuthongtin'])) {
+                    $tenquyen = $_POST['tenquyen'];
+                   
+
+                    $sql = "INSERT INTO phanquyen (tenquyen)
+                        VALUES ('$tenquyen')";
+                    $result = mysqli_query($conn, $sql);
+                   
+                }
+
+                ?>
+            </div>
+
+
             <div class="row mt-5">
                 <table class="table table-bordered border-dark table-striped table-hover">
                     <thead class="thead-dark">
@@ -37,7 +59,7 @@ if (!isset($_SESSION['login'])) {
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td> <?php echo $row['tenquyen']; ?></td>
-                                    <td><a href="edit.php?iduser=<?php echo $row['idphanquyen']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a href="editPhanQuyen.php?iduser=<?php echo $row['idphanquyen']; ?>"><i class="bi bi-pencil-square"></i></a></td>
                                     <td><a href="delete.php?iduser=<?php echo $row['idphanquyen']; ?>" 
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>

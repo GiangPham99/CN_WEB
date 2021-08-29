@@ -1,9 +1,5 @@
 <?php
 include("./config/connect.php");
-session_start();
-if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
-}
 ?>
 <div class="row">
     <div class="col-3">
@@ -24,17 +20,13 @@ if (!isset($_SESSION['login'])) {
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Nội dung</label>
                         <input type="text" class="form-control" name="noidung" placeholder="Nội dung" required>
-                    </div>
+                    </div>                  
                     <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Ngày viết</label>
-                        <input type="text" class="form-control" name="ngayviet" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Danh mục</label>
+                        <label for="validationCustomUsername" class="form-label">ID Danh mục</label>
                         <input type="text" class="form-control" name="danhmuc" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="validationCustomUsername" class="form-label">Hình ảnh</label>
+                        <label for="validationCustomUsername" class="form-label">ID Hình ảnh</label>
                         <input type="text" class="form-control" name="hinhanh" required>
                     </div>
                     <div class="col-md-4">
@@ -50,7 +42,7 @@ if (!isset($_SESSION['login'])) {
                 if (isset($_POST['luuthongtin'])) {
                     $tieude = $_POST['tieude'];
                     $noidung = $_POST['noidung'];
-                    $ngayviet = $_POST['ngayviet'];
+                    $ngayviet = date("Y-m-d");
                     $iddanhmuc = $_POST['danhmuc'];
                     $idhinhanh = $_POST['hinhanh'];
                     $iddangnhap = $_POST['dangnhap'];

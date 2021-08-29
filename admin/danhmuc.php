@@ -1,9 +1,6 @@
 <?php
 include("./config/connect.php");
-session_start();
-if (!isset($_SESSION['login'])) {
-     header('location:localhost/phenikaa_test2_BTL/admin/login.php');
-}
+
 ?>
 <div class="row">
     <div class="col-3">
@@ -24,10 +21,7 @@ if (!isset($_SESSION['login'])) {
                         <label for="validationCustom02" class="form-label">Mô tả</label>
                         <input type="text" class="form-control" name="mota" placeholder="Mô tả" required>
                     </div>
-                    <div class="col-md-2">
-                        <label for="validationCustom05" class="form-label">Ngày đăng</label>
-                        <input type="text" class="form-control" name="ngaydang" placeholder="Ngày đăng" required>
-                    </div>
+                
                     <div class="col-md-2">
                         <label for="validationCustom05" class="form-label">ID người đăng</label>
                         <input type="text" class="form-control" name="dangnhap" required>
@@ -41,9 +35,8 @@ if (!isset($_SESSION['login'])) {
                 if (isset($_POST['luuthongtin'])) {
                     $tendanhmuc = $_POST['tendanhmuc'];
                     $mota = $_POST['mota'];
-                    $ngaydang = $_POST['ngaydang'];
+                    $ngaydang = date("Y-m-d");
                     $dangnhap = $_POST['dangnhap'];
-                  
 
                     $sql = "INSERT INTO danhmuc (tendanhmuc, mota, iddangnhap ,ngaydang)
                         VALUES ('$tendanhmuc','$mota',' $dangnhap','$ngaydang')";
@@ -80,7 +73,7 @@ if (!isset($_SESSION['login'])) {
                                     <td> <?php echo $row['tendanhmuc']; ?> </td>
                                     <td> <?php echo $row['mota']; ?></td>
                                     <td> <?php echo $row['ngaydang']; ?></td>
-                                    <td><a href="edit.php?iddanhmuc=<?php echo $row['iddanhmuc']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a href="editDanhMuc.php?iddanhmuc=<?php echo $row['iddanhmuc']; ?>"><i class="bi bi-pencil-square"></i></a></td>
                                     <td><a href="delete.php?iddanhmuc=<?php echo $row['iddanhmuc']; ?>" onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                             <i class="bi bi-archive-fill"></i></a></td>
                                 </tr>

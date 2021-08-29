@@ -3,5 +3,5 @@ session_start();
 session_unset();
 session_destroy();
 
-header("Location:localhost/phenikaa_test2_BTL/admin/index-login.php");
+header("Location:./index-login.php");
 ?>

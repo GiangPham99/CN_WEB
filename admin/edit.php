@@ -48,7 +48,7 @@ $result = mysqli_query($conn, $sql);
         $sql = "UPDATE tintuc,thuvien  SET tintuc.tieude='$tieude',tintuc.noidung='$noidung', thuvien.tenanh='$tenanh' WHERE tintuc.idtintuc = '$id_thay_doi' and thuvien.idhinhanh = '$idanh'";
         if ($conn->query($sql) === TRUE) {
             echo "thay dổi thành công";
-            header("Location:http://localhost/phenikaa_test2_BTL/admin/tintuc.php");
+            header("Location:./tintuc.php");
         } else {
             echo "Không thể thay đổi thông tin người dùng";
         }

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['login'])) {
+  header("Location:index-login.php");
+    die("bạn phải đăng nhập ");
+}
+?>
 <!doctype html>
 <html lang="en">
 
@@ -22,42 +29,42 @@
           <ul class="list-group list-group-flush text-center">
             <li class="list-group-item">
               <button type="button" class=" btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="http://localhost/phenikaa_test2_BTL/admin/index.php" class="text-decoration-none text-white">Trang chủ</a>
+                <a href="./index.php" class="text-decoration-none text-white">Trang chủ</a>
               </button>
             </li>
             <li class="list-group-item">
               <button type="button" class=" btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="http://localhost/phenikaa_test2_BTL/admin/user.php" class="text-decoration-none text-white">Người dùng</a>
+                <a href="./user.php" class="text-decoration-none text-white">Người dùng</a>
               </button>
             </li>
             <li class="list-group-item">
               <button type="button" class=" btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="http://localhost/phenikaa_test2_BTL/admin/danhmuc.php" class="text-decoration-none text-white">Danh mục</a>
+                <a href="./danhmuc.php" class="text-decoration-none text-white">Danh mục</a>
               </button>
             </li>
             <li class="list-group-item">
               <button type="button" class=" btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="http://localhost/phenikaa_test2_BTL/admin/tintuc.php" class="text-decoration-none text-white">Tin tức</a>
+                <a href="./tintuc.php" class="text-decoration-none text-white">Tin tức</a>
               </button>
             </li>
             <li class="list-group-item">
               <button type="button" class=" btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="http://localhost/phenikaa_test2_BTL/admin/thuvienanh.php" class="text-decoration-none text-white">Thư viện hình ảnh</a>
+                <a href="./thuvienanh.php" class="text-decoration-none text-white">Thư viện hình ảnh</a>
               </button>
             </li>
             <li class="list-group-item">
               <button type="button" class=" btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="http://localhost/phenikaa_test2_BTL/admin/slide.php" class="text-decoration-none text-white">Trình chiếu</a>
+                <a href="./slide.php" class="text-decoration-none text-white">Trình chiếu</a>
               </button>
             </li>
             <li class="list-group-item">
               <button type="button" class="btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="http://localhost/phenikaa_test2_BTL/admin/phanquyen.php" class="text-decoration-none text-white">Phân quyền</a>
+                <a href="./phanquyen.php" class="text-decoration-none text-white">Phân quyền</a>
               </button>
             </li>
             <li class="list-group-item">
               <button type="button" class=" btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="http://localhost/phenikaa_test2_BTL/index.php" class="text-decoration-none text-white">Đăng xuất</a>
+                <a href="logout.php" class="text-decoration-none text-white">Đăng xuất</a>
               </button>
             </li>
           </ul>

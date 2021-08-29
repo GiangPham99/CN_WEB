@@ -1,9 +1,6 @@
 <?php
 include("./config/connect.php");
-session_start();
-if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
-}
+
 ?>
 <div class="row">
     <div class="col-3">
@@ -20,10 +17,6 @@ if (!isset($_SESSION['login'])) {
                         <label for="validationCustom01" class="form-label">Link ảnh</label>
                         <input type="text" class="form-control" name="tenanh" placeholder="Link ảnh" required>
                     </div>
-                    <div class="col-md-2">
-                        <label for="validationCustom05" class="form-label">Ngày đăng</label>
-                        <input type="text" class="form-control" name="ngaydang" placeholder="Ngày đăng" required>
-                    </div>
                     <div class="col-12">
                         <button class="btn-primary mt-3" style="width: 90px;height: 35px;border: none;border-radius: 5px;" type="submit" name="luuthongtin" value="luuthongtin">Thêm</button>
                     </div>
@@ -31,17 +24,17 @@ if (!isset($_SESSION['login'])) {
                 <?php
                 if (isset($_POST['luuthongtin'])) {
                     $tenanh = $_POST['tenanh'];
-                    $ngaydang = $_POST['ngaydang'];
+                    $ngaydang = date("Y-m-d");
 
                     $sql = "INSERT INTO thuvien (tenanh, ngaydang)
                         VALUES ('$tenanh' ,'$ngaydang')";
-                    // $result = mysqli_query($conn, $sql);
-                    // $count = mysqli_num_rows($result);
-                    if (mysqli_query($conn, $sql)) {
-                        header("Location:http://localhost/phenikaa_test2_BTL/admin/thuvienanh.php");
-                    } else {
-                        echo "Không thể thêm ảnh mới";
-                    }
+                        
+                        $result = mysqli_query($conn, $sql);
+                    // if (mysqli_query($conn, $sql)) {
+                    //     header("Location:http://localhost/phenikaa_test2_BTL/admin/thuvienanh.php");
+                    // } else {
+                    //     echo "Không thể thêm ảnh mới";
+                    // }
                 }
 
                 ?>

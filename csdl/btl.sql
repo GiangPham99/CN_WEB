@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 29, 2021 at 02:40 PM
+-- Generation Time: Aug 29, 2021 at 05:16 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -118,7 +118,7 @@ CREATE TABLE `thuvien` (
 --
 
 INSERT INTO `thuvien` (`idhinhanh`, `tenanh`, `ngaydang`) VALUES
-(2, 'https://phenikaa-uni.edu.vn:3600/pu/vi/posts/thumbnail-nguong-diem-nhan-ho-so-04.jpg', '2021-08-28'),
+(2, 'https://phenikaa-uni.edu.vn:3600/pu/vi/posts/thumbnail-nguong-diem-nhan-ho-so-04.jpg', '2021-08-29'),
 (3, 'https://phenikaa-uni.edu.vn:3600/pu/vi/posts/tin-tuc.jpg', '2021-08-28'),
 (6, 'https://phenikaa-uni.edu.vn:3600/pu/vi/posts/thumbnail-tin-tuc-01.jpg', '2021-08-28'),
 (7, 'https://phenikaa-uni.edu.vn:3600/pu/vi/posts/thumbnail-tin-tuc.jpg', '2021-08-28'),
@@ -137,7 +137,7 @@ CREATE TABLE `tintuc` (
   `idtintuc` int(30) NOT NULL,
   `tieude` text COLLATE utf8_unicode_ci NOT NULL,
   `noidung` text COLLATE utf8_unicode_ci NOT NULL,
-  `ngayviet` date NOT NULL,
+  `ngayviet` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `iddanhmuc` int(30) NOT NULL,
   `idhinhanh` int(10) NOT NULL,
   `iddangnhap` int(30) NOT NULL
@@ -215,19 +215,19 @@ ALTER TABLE `tintuc`
 -- AUTO_INCREMENT for table `dangnhap`
 --
 ALTER TABLE `dangnhap`
-  MODIFY `iddangnhap` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `iddangnhap` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `danhmuc`
 --
 ALTER TABLE `danhmuc`
-  MODIFY `iddanhmuc` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `iddanhmuc` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `phanquyen`
 --
 ALTER TABLE `phanquyen`
-  MODIFY `idphanquyen` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idphanquyen` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `slideshow`
@@ -239,13 +239,13 @@ ALTER TABLE `slideshow`
 -- AUTO_INCREMENT for table `thuvien`
 --
 ALTER TABLE `thuvien`
-  MODIFY `idhinhanh` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idhinhanh` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tintuc`
 --
 ALTER TABLE `tintuc`
-  MODIFY `idtintuc` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idtintuc` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- Constraints for dumped tables

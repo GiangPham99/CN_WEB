@@ -1,9 +1,6 @@
 <?php
 include("./config/connect.php");
-session_start();
-if (!isset($_SESSION['login'])) {
-    // header('location:localhost/phenikaa_test2_BTL/admin/login.php');
-}
+
 ?>
 <div class="row">
     <div class="col-3">
