@@ -6,14 +6,16 @@
     $sql = "DELETE FROM dangnhap WHERE iddangnhap = '$id_user'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http:./user.php");
+        header("Location:./user.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http:./user.php');
+        header('location:./user.php');
     }
     }
 ?>
+
+
 
 <!-- Delete-Danhmuc -->
 <?php
