@@ -6,11 +6,11 @@
     $sql = "DELETE FROM dangnhap WHERE iddangnhap = '$id_user'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:./user.php");
+        header("Location:./nguoiDung.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:./user.php');
+        header('location:./nguoiDung.php');
     }
     }
 ?>
@@ -42,11 +42,11 @@
     $sql = "DELETE FROM tintuc WHERE idtintuc = '$id_tintuc'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http:./tintuc.php");
+        header("Location:./tintuc.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http:./tintuc.php');
+        header('location:./tintuc.php');
     }
     }
 ?>
@@ -59,11 +59,11 @@
     $sql = "DELETE FROM thuvien WHERE idhinhanh = '$id_thuvien'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http:./thuvienanh.php");
+        header("Location:./thuvienanh.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http:./thuvienanh.php');
+        header('location:./thuvienanh.php');
     }
     }
 ?>
@@ -76,11 +76,11 @@
     $sql = "DELETE FROM phanquyen WHERE idphanquyen = '$id_phanquyen'";
     $result = mysqli_query($conn,$sql);
     if($result == true){
-        header("Location:http:./phanquyen.php");
+        header("Location:./phanquyen.php");
         
     }else{
         echo "Xóa thất bại: " . mysqli_error($conn);
-        header('location:http:./phanquyen.php');
+        header('location:./phanquyen.php');
     }
     }
 ?>

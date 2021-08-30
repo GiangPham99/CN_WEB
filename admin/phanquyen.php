@@ -59,8 +59,8 @@ include("./config/connect.php");
                                 <tr>
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td> <?php echo $row['tenquyen']; ?></td>
-                                    <td><a href="editPhanQuyen.php?iduser=<?php echo $row['idphanquyen']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                    <td><a href="delete.php?iduser=<?php echo $row['idphanquyen']; ?>" 
+                                    <td><a href="suaPhanQuyen.php?iduser=<?php echo $row['idphanquyen']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a href="xoa.php?iduser=<?php echo $row['idphanquyen']; ?>" 
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>
                                 </tr>

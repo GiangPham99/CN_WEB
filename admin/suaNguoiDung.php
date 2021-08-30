@@ -60,7 +60,7 @@ $result = mysqli_query($conn, $sql);
                 WHERE iddangnhap = '$id_thay_doi'";
         if ($conn->query($sql) === TRUE) {
             echo "thay dổi thành công";
-            header("Location:./user.php");
+            header("Location:./nguoiDung.php");
         } else {
             echo "Không thể thay đổi thông tin người dùng";
         }

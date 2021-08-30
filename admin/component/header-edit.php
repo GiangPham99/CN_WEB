@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['login'])) {
-  header("Location:index-login.php");
+  header("Location:./index-login.php");
     die("bạn phải đăng nhập ");
 }
 

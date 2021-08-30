@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['login'])) {
-  header("Location:index-login.php");
+  header("Location:./index-login.php");
     die("bạn phải đăng nhập ");
 }
 ?>
@@ -34,7 +34,7 @@ if (!isset($_SESSION['login'])) {
             </li>
             <li class="list-group-item">
               <button type="button" class=" btn-secondary" style="width:200px;height: 40px;border: none;border-radius: 5px;">
-                <a href="./user.php" class="text-decoration-none text-white">Người dùng</a>
+                <a href="./nguoiDung.php" class="text-decoration-none text-white">Người dùng</a>
               </button>
             </li>
             <li class="list-group-item">

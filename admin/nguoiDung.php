@@ -88,8 +88,8 @@ include("./config/connect.php");
                                     <td> <?php echo $row['hoten']; ?></td>
                                     <td> <?php echo $row['diachi']; ?></td> 
                                     <td> <?php echo $row['ngaylap'] ?></td>
-                                    <td><a href="editUser.php?iddangnhap=<?php echo $row['iddangnhap']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                    <td><a href="delete.php?iddangnhap=<?php echo $row['iddangnhap']; ?>" 
+                                    <td><a href="suaNguoiDung.php?iddangnhap=<?php echo $row['iddangnhap']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a href="xoa.php?iddangnhap=<?php echo $row['iddangnhap']; ?>" 
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>
                                 </tr>

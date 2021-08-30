@@ -64,8 +64,8 @@ include("./config/connect.php");
                                     <th scope="row"><?php echo $i; ?></th>
                                     <td> <?php echo $row['tenanh']; ?> </td>
                                     <td> <?php echo $row['ngaydang']; ?></td>
-                                    <td><a href="editHinhAnh.php?idhinhanh=<?php echo $row['idhinhanh']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
-                                    <td><a href="delete.php?idhinhanh=<?php echo $row['idhinhanh']; ?>" 
+                                    <td><a href="suaHinhAnh.php?idhinhanh=<?php echo $row['idhinhanh']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
+                                    <td><a href="xoa.php?idhinhanh=<?php echo $row['idhinhanh']; ?>" 
                                     onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                     <i class="bi bi-archive-fill"></i></a></td>
                                 </tr>

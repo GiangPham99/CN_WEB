@@ -73,8 +73,8 @@ include("./config/connect.php");
                                     <td> <?php echo $row['tendanhmuc']; ?> </td>
                                     <td> <?php echo $row['mota']; ?></td>
                                     <td> <?php echo $row['ngaydang']; ?></td>
-                                    <td><a href="editDanhMuc.php?iddanhmuc=<?php echo $row['iddanhmuc']; ?>"><i class="bi bi-pencil-square"></i></a></td>
-                                    <td><a href="delete.php?iddanhmuc=<?php echo $row['iddanhmuc']; ?>" onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
+                                    <td><a href="suaDanhMuc.php?iddanhmuc=<?php echo $row['iddanhmuc']; ?>"><i class="bi bi-pencil-square"></i></a></td>
+                                    <td><a href="xoa.php?iddanhmuc=<?php echo $row['iddanhmuc']; ?>" onclick="return confirm('Bạn có thực sự muốn xóa ?' );">
                                             <i class="bi bi-archive-fill"></i></a></td>
                                 </tr>
                         <?php
